@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veille Technologique : Google Ads</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --main-color: #f6d238; /* Couleur principale définie ici */
+        --text-on-main: #333333; /* Texte sur la couleur principale pour contraste */
+        --dark-text: #333333;
+        --light-text: #ffffff;
+        --section-bg: #ffffff;
+        --body-bg: #f5f5f5;
+        --card-bg: #ffffff; /* Fond des cartes */
+        --accent-light-bg: #fffbef; /* Jaune très pâle pour certains fonds */
+        --border-color: #e0e0e0;
+        --shadow-color: rgba(0, 0, 0, 0.08);
+        --secondary-accent-color: #e67e22; /* Pour différencier .scriptjs par exemple */
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Jost", sans-serif;
+      }
+
+      body {
+        background-color: var(--body-bg);
+        color: var(--dark-text);
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: var(--main-color);
+        color: var(--text-on-main);
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      header h1 {
+        font-size: 2.8rem;
+        font-weight: 600;
+      }
+
+      section {
+        padding: 50px 30px;
+        margin: 30px auto;
+        background-color: var(--section-bg);
+        border-radius: 12px;
+        box-shadow: 0 6px 20px var(--shadow-color);
+        max-width: 1100px; /* Limite la largeur pour une meilleure lisibilité sur grands écrans */
+      }
+
+      /* Titre principal de chaque section */
+      section > h1:first-child {
+        color: var(--dark-text);
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid var(--main-color);
+        display: inline-block; /* Pour que la bordure s'adapte au texte */
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: var(--dark-text); /* Titres en gris foncé pour lisibilité */
+        margin-bottom: 15px;
+        font-weight: 500;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+      h3 {
+        font-size: 1.5rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+        color: #555;
+      }
+
+      p {
+        margin-bottom: 15px;
+        color: #555;
+      }
+
+      .image-container {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px var(--shadow-color);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Ajustement spécifique pour les images dans Slide1 et Slide3 */
+      .Slide1 .image-container img,
+      .Slide3 .image-container img {
+        max-width: 580px; /* Limite la largeur maximale de ces images. Ajustez cette valeur au besoin. */
+      }
+
+      .grid-layout,
+      .timeline-layout {
+        display: flex;
+        justify-content: space-around;
+        gap: 25px;
+        margin: 30px 0;
+      }
+
+      .info-card {
+        background-color: var(--card-bg);
+        padding: 25px;
+        border-radius: 10px;
+        width: 100%;
+        box-shadow: 0 4px 12px var(--shadow-color);
+        border: 1px solid var(--border-color);
+        border-top: 4px solid var(--main-color);
+      }
+      .grid-layout .info-card {
+        flex-basis: 47%;
+      }
+      .timeline-layout .info-card {
+        flex-basis: 30%;
+      }
+
+      ol {
+        padding-left: 25px;
+      }
+
+      ol li {
+        margin-bottom: 20px;
+      }
+      ol li h4 {
+        margin-bottom: 5px;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: center;
+        margin: 25px 0;
+        background-color: var(--card-bg);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px var(--shadow-color);
+        border: 1px solid var(--border-color);
+      }
+
+      .feature-item .icon {
+        font-size: 1.8rem;
+        color: var(--text-on-main);
+        margin-right: 20px;
+        width: 55px;
+        height: 55px;
+        background-color: var(--main-color);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .feature-item .content {
+        flex: 1;
+      }
+      .feature-item .content h3 {
+        margin-bottom: 5px;
+        font-size: 1.3rem;
+      }
+
+      .code-block {
+        background-color: var(--accent-light-bg);
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px var(--shadow-color);
+      }
+
+      .code-block.html-block {
+        border-left: 5px solid var(--main-color);
+      }
+
+      .code-block.js-block {
+        border-left: 5px solid var(--secondary-accent-color);
+        background-color: #fff5e8;
+      }
+      .code-block h2 {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+      }
+
+      .flex-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .flex-container .info-card {
+        flex-basis: 48%;
+      }
+      .flex-container .info-card .fa-solid {
+        font-size: 1.5rem;
+        color: var(--main-color);
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .empty-space {
+        height: 20px;
+      }
+
+      .timeline-layout.centered-image .image-container {
+        align-self: center;
+      }
+      .timeline-column {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .timeline-column .info-card {
+        width: 100%;
+      }
+
+      .timeline-item.right-aligned {
+        margin-bottom: 20px;
+        border-right: 4px solid var(--main-color);
+        padding-right: 20px;
+        text-align: right;
+      }
+
+      .timeline-item.left-aligned {
+        margin-bottom: 20px;
+        border-left: 4px solid var(--main-color);
+        padding-left: 20px;
+      }
+
+      .trilemma-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        margin: 30px 0;
+      }
+
+      .trilemma-item {
+        flex-basis: 31%;
+        text-align: center;
+        padding: 25px;
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        box-shadow: 0 4px 12px var(--shadow-color);
+        border: 1px solid var(--border-color);
+        border-top: 4px solid var(--main-color);
+      }
+
+      .trilemma-item .icon {
+        font-size: 1.8rem;
+        color: var(--text-on-main);
+        margin: 0 auto 20px;
+        width: 60px;
+        height: 60px;
+        background-color: var(--main-color);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .trilemma-item h3 {
+        font-size: 1.3rem;
+      }
+
+      .highlight-box {
+        background-color: var(--main-color);
+        color: var(--text-on-main);
+        padding: 25px;
+        text-align: center;
+        border-radius: 10px;
+        margin-top: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      }
+      .highlight-box h3 {
+        color: var(--text-on-main);
+        font-weight: 600;
+      }
+      .highlight-box p {
+        color: var(--text-on-main);
+      }
+
+      .feature-group {
+        margin: 30px 0;
+        padding: 25px;
+        background-color: var(--accent-light-bg);
+        border-radius: 10px;
+        box-shadow: 0 4px 12px var(--shadow-color);
+      }
+      .feature-group h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+      }
+
+      .service-item,
+      .tool-item {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        gap: 15px;
+      }
+
+      .service-item-icon,
+      .tool-item-icon {
+        width: 50px;
+        height: 50px;
+        background-color: var(--main-color);
+        color: var(--text-on-main);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .service-details,
+      .tool-content {
+        flex: 1;
+      }
+      .service-details h3,
+      .tool-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+
+      .tools-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 25px 20px;
+        background-color: var(--main-color);
+        color: var(--text-on-main);
+        margin-top: 40px;
+        font-weight: 500;
+      }
+
+      @media (max-width: 992px) {
+        .grid-layout .info-card,
+        .timeline-layout .info-card,
+        .trilemma-item,
+        .timeline-column {
+          flex-basis: 100%;
+          width: 100%;
+        }
+        .timeline-layout {
+          flex-direction: column;
+          align-items: center;
+        }
+        .timeline-column {
+          max-width: 500px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2.2rem;
+        }
+        section {
+          padding: 30px 20px;
+          margin: 20px auto;
+        }
+        section > h1:first-child {
+          font-size: 1.8rem;
+        }
+        h2 {
+          font-size: 1.6rem;
+        }
+        h3 {
+          font-size: 1.3rem;
+        }
+
+        .grid-layout,
+        .timeline-layout,
+        .flex-container,
+        .trilemma-container {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .info-card,
+        .timeline-column,
+        .trilemma-item,
+        .flex-container .info-card {
+          width: 100%;
+          margin-bottom: 15px;
+          flex-basis: auto;
+        }
+
+        .timeline-item.right-aligned,
+        .timeline-item.left-aligned {
+          border-right: none;
+          border-left: 4px solid var(--main-color);
+          text-align: left;
+          padding-left: 15px;
+          padding-right: 0;
+        }
+        .feature-item {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 15px;
+        }
+        .feature-item .icon {
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>VEILLE DU GROUPE D SUR LE THÈME : "Google Ads"</h1>
+    </header>
+
+    <!-- SLIDE 1: Introduction -->
+    <section class="Slide1 S1">
+      <h1>I. Introduction à Google Ads</h1>
+      <div class="text">
+        <p>
+          Imaginez pouvoir toucher des millions de personnes précisément au
+          moment où elles recherchent vos produits ou services. C'est ce que
+          permet Google Ads, la plateforme publicitaire de Google. Google Ads
+          est un système qui permet aux annonceurs d'enchérir pour afficher de
+          brèves publicités, des offres de service, des listes de produits ou
+          des vidéos aux utilisateurs du web.
+        </p>
+        <p>
+          Google Ads est de plus en plus utilisé par les entreprises de toutes
+          tailles, des PME aux multinationales, pour promouvoir leurs produits
+          et services en ligne. Le marché de la publicité numérique continue de
+          croître, avec Google Ads qui reste le leader incontesté, représentant
+          plus de 28% des dépenses publicitaires numériques mondiales.
+        </p>
+      </div>
+      <div class="image-container">
+        <img src="img1.jpg" alt="Illustration de Google Ads" />
+      </div>
+    </section>
+
+    <!-- SLIDE 2: Historique et évolution de Google Ads -->
+    <section class="Slide2">
+      <h1>II. Historique et Évolution de Google Ads</h1>
+      <div class="text">
+        <p>
+          Google Ads, anciennement connu sous le nom de Google AdWords, est né
+          en octobre 2000 avec seulement 350 annonceurs. Depuis, il a évolué
+          pour devenir l'une des plateformes publicitaires les plus
+          sophistiquées et les plus lucratives au monde.
+        </p>
+      </div>
+      <div class="grid-layout">
+        <div class="info-card">
+          <h3>Débuts modestes</h3>
+          <p>
+            Lancé en 2000 sous le nom d'AdWords avec un système simple
+            d'enchères par clic.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>Expansion constante</h3>
+          <p>
+            Développement du réseau Display, YouTube Ads, et intégration mobile.
+          </p>
+        </div>
+      </div>
+      <div class="grid-layout">
+        <div
+          class="info-card"
+          style="flex-basis: 100%; max-width: 500px; margin: 0 auto"
+        >
+          <h3>Intelligence Artificielle</h3>
+          <p>
+            Introduction de l'IA pour optimiser les enchères, le ciblage et la
+            création publicitaire.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: Applications actuelles de Google Ads -->
+    <section class="Slide3">
+      <h1>III. Applications Actuelles de Google Ads</h1>
+      <div class="text">
+        <p>
+          Google Ads offre une variété de formats publicitaires pour répondre à
+          différents objectifs marketing.
+        </p>
+        <ol>
+          <li>
+            <h4>Recherche Google</h4>
+            <p>
+              Annonces textuelles qui apparaissent dans les résultats de
+              recherche Google.
+            </p>
+          </li>
+          <li>
+            <h4>Réseau Display</h4>
+            <p>
+              Annonces visuelles sur plus de 2 millions de sites web, vidéos et
+              applications.
+            </p>
+          </li>
+          <li>
+            <h4>YouTube</h4>
+            <p>Formats vidéo avant, pendant ou après les vidéos YouTube.</p>
+          </li>
+          <li>
+            <h4>Shopping</h4>
+            <p>
+              Annonces produits avec images, prix et informations spécifiques.
+            </p>
+          </li>
+        </ol>
+      </div>
+      <div class="image-container">
+        <img src="img3.jpg" alt="Applications de Google Ads" />
+      </div>
+    </section>
+
+    <!-- SLIDE 4: Pour les marketeurs : Intégration de Google Ads -->
+    <section class="Slide4">
+      <h1>IV. Intégration de Google Ads : Pour les Marketeurs</h1>
+      <p>Comment intégrer Google Ads dans votre stratégie marketing.</p>
+
+      <div class="feature-item">
+        <div class="icon">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+        <div class="content">
+          <h3>Gestionnaire de compte</h3>
+          <p>
+            Interface principale pour créer et gérer vos campagnes
+            publicitaires.
+          </p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="icon">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <div class="content">
+          <h3>Google Ads API</h3>
+          <p>
+            Pour les développeurs souhaitant automatiser la gestion des
+            campagnes.
+          </p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="icon">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <div class="content">
+          <h3>Google Analytics</h3>
+          <p>
+            Intégration pour suivre les performances et le comportement des
+            utilisateurs.
+          </p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="icon">
+          <i class="fa-solid fa-tags"></i>
+        </div>
+        <div class="content">
+          <h3>Google Tag Manager</h3>
+          <p>
+            Outil pour implémenter des balises de suivi sans modifier le code du
+            site.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: Étapes d'intégration -->
+    <section class="Slide5">
+      <h1>V. Étapes d'Intégration de Google Ads</h1>
+      <div class="code-block html-block">
+        <h2>Création du compte</h2>
+        <p>Configuration initiale du compte et paramètres de facturation.</p>
+      </div>
+      <div class="code-block js-block">
+        <h2>Structure de campagne</h2>
+        <p>
+          Organisation en campagnes, groupes d'annonces, mots-clés et annonces.
+        </p>
+      </div>
+      <div class="code-block html-block">
+        <h2>Configuration du suivi</h2>
+        <p>
+          Mise en place du suivi des conversions et intégration avec Analytics.
+        </p>
+      </div>
+      <div class="code-block js-block">
+        <h2>Optimisation continue</h2>
+        <p>Analyse des performances et ajustements basés sur les données.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: Avantages et défis -->
+    <section class="Slide6">
+      <h1>VI. Avantages et Défis de Google Ads</h1>
+      <div class="flex-container">
+        <div class="info-card">
+          <i class="fa-solid fa-thumbs-up"></i>
+          <h3>Avantages</h3>
+          <p>
+            Ciblage précis, mesure exacte du ROI, flexibilité budgétaire et
+            contrôle total.
+          </p>
+        </div>
+        <div class="info-card">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <h3>Défis</h3>
+          <p>
+            Courbe d'apprentissage abrupte, concurrence élevée et coûts
+            potentiellement importants.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: Tendances émergentes et innovations -->
+    <section class="Slide7">
+      <h1>VII. Tendances Émergentes et Innovations</h1>
+      <div class="text">
+        <p>Exploration des futures directions de Google Ads.</p>
+        <div class="empty-space"></div>
+        <p>
+          <strong>Automatisation et IA :</strong> Types de campagnes
+          intelligentes et enchères automatisées.
+        </p>
+        <div class="empty-space"></div>
+        <p>
+          <strong>Ciblage avancé :</strong> Analyse comportementale et
+          prédictive des utilisateurs.
+        </p>
+      </div>
+      <div class="image-container">
+        <img src="img2.jpg" alt="Tendances de Google Ads" />
+      </div>
+    </section>
+
+    <!-- SLIDE 8: Améliorations technologiques -->
+    <section class="Slide8">
+      <h1>VIII. Améliorations Technologiques</h1>
+      <p>
+        Progrès dans les technologies Google Ads pour des campagnes plus
+        efficaces.
+      </p>
+      <div class="timeline-layout centered-image">
+        <div class="timeline-column">
+          <div class="info-card timeline-item right-aligned">
+            <h4>Machine Learning</h4>
+            <p>Algorithmes qui optimisent les enchères et le ciblage.</p>
+          </div>
+          <div class="info-card timeline-item right-aligned">
+            <h4>Analyses Prédictives</h4>
+            <p>Prévisions de performance basées sur les données historiques.</p>
+          </div>
+        </div>
+        <div
+          class="image-container"
+          style="align-self: center; max-width: 350px"
+        >
+          <img src="img4.jpg" alt="Améliorations Technologiques Google Ads" />
+        </div>
+        <div class="timeline-column">
+          <div class="info-card timeline-item left-aligned">
+            <h4>Création Automatisée</h4>
+            <p>Génération d'annonces par IA.</p>
+          </div>
+          <div class="info-card timeline-item left-aligned">
+            <h4>Expériences Immersives</h4>
+            <p>Formats publicitaires interactifs et engageants.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: Perspectives futures -->
+    <section class="Slide9">
+      <h1>IX. Perspectives Futures</h1>
+      <div class="text">
+        <p>
+          Google Ads va continuer à évoluer, intégrant de nouvelles technologies
+          et formats pour s'adapter aux changements du comportement des
+          consommateurs et des tendances du marché.
+        </p>
+      </div>
+      <div class="trilemma-container">
+        <div class="trilemma-item">
+          <div class="icon">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <h3>IA avancée</h3>
+          <p>Campagnes entièrement gérées par l'intelligence artificielle.</p>
+        </div>
+        <div class="trilemma-item">
+          <div class="icon">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+          <h3>Vie privée</h3>
+          <p>
+            Adaptation aux nouvelles réglementations sur la protection des
+            données.
+          </p>
+        </div>
+        <div class="trilemma-item">
+          <div class="icon">
+            <i class="fa-solid fa-vr-cardboard"></i>
+          </div>
+          <h3>Réalité augmentée</h3>
+          <p>Publicités immersives dans des environnements AR/VR.</p>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <h3>Le Futur de Google Ads</h3>
+        <p>
+          Google Ads continuera d'innover pour offrir des expériences
+          publicitaires plus pertinentes et engageantes.
+        </p>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: Conclusion -->
+    <section class="Slide10">
+      <h1>X. Conclusion</h1>
+      <div class="text">
+        <p>
+          Google Ads est une plateforme publicitaire puissante qui continue
+          d'évoluer et d'innover. Que vous soyez un petit entrepreneur ou un
+          marketeur dans une grande entreprise, Google Ads offre des outils
+          adaptés à vos besoins pour atteindre vos objectifs commerciaux. En
+          restant à jour avec les dernières fonctionnalités et tendances, vous
+          pouvez maximiser votre retour sur investissement et garder une
+          longueur d'avance sur la concurrence. Alors, prêt à renforcer votre
+          présence en ligne avec Google Ads ?
+        </p>
+      </div>
+
+      <div class="feature-group">
+        <h2>Principaux bénéfices de Google Ads :</h2>
+        <div class="service-item">
+          <div class="service-item-icon">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <div class="service-details">
+            <h3>Ciblage précis</h3>
+            <p>
+              Atteignez exactement les personnes intéressées par vos produits ou
+              services.
+            </p>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-item-icon">
+            <i class="fa-solid fa-chart-pie"></i>
+          </div>
+          <div class="service-details">
+            <h3>Mesurabilité complète</h3>
+            <p>
+              Suivez chaque clic, conversion et retour sur investissement de vos
+              campagnes.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-group">
+        <h2>Ressources pour explorer Google Ads :</h2>
+        <div class="tools-list">
+          <div class="tool-item">
+            <div class="tool-item-icon">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="tool-content">
+              <h3>Google Skillshop</h3>
+              <p>Formation officielle et certification Google Ads.</p>
+            </div>
+          </div>
+
+          <div class="tool-item">
+            <div class="tool-item-icon">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div class="tool-content">
+              <h3>Documentation API Google Ads</h3>
+              <p>
+                Ressources pour les développeurs souhaitant automatiser la
+                gestion des campagnes.
+              </p>
+            </div>
+          </div>
+
+          <div class="tool-item">
+            <div class="tool-item-icon">
+              <i class="fa-solid fa-comments"></i>
+            </div>
+            <div class="tool-content">
+              <h3>Communauté Google Ads</h3>
+              <p>Forum d'entraide entre annonceurs et experts Google Ads.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2024 SIMPLON CI - Veille Technologique Groupe D</p>
+    </footer>
+  </body>
+</html>
